@@ -1,0 +1,16 @@
+name: Team awesome's approval workflow
+on: pull_request_review
+
+env: 
+  APPROVALS: "1"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ADD_LABEL: "approvals have been met"
+
+jobs:
+  labelWhenApproved:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: pullreminders/label-when-approved-action@v3
+      - name: approvals-test
+    
